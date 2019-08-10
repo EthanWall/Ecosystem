@@ -10,11 +10,23 @@ class WorldMap:
         self.objects = objects
         self.size = size
         
-    def addObject(self, obj, loc=(0, 0)):
-        self.objects[obj] = loc
+    def addObject(self, obj, location=(0, 0)):
+        self.objects[obj] = location
         
     def render(self):
         render.render(self.size, self.objects)
+    
+    def setObjectPosition(self, obj, location, relative=False):
+        if relative:
+            self.objects[obj][0] += location[0] #X
+            self.objects[obj][1] += location[1] #Y
+        else:
+            self.objects[obj] = location
+    
+    def getObjectPosition(self, obj):
+        if obj in self.objects:
+            return self.objects[obj]
+        return None
     
     def findNearbyObject(self, origin, objectType, radius=10):
         closestObject = None
