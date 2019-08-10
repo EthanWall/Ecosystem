@@ -27,11 +27,3 @@ class MaleAnimal(Animal):
 class FemaleAnimal(Animal):
     def findNearestMale(self):
         return self.world.findNearbyObject(self, MaleAnimal, self.fieldOfView)
-    
-if __name__ == "__main__":
-    earth = world_map.WorldMap(size=(200, 200))
-    
-    a = MaleAnimal(world=earth)
-    b = FemaleAnimal(world=earth)
-    
-    earth.render()
