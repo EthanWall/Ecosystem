@@ -5,15 +5,16 @@ Created on Aug 8, 2019
 '''
 import random
 
-import world_map
+from object import Object
 
-class Animal:
-    def __init__(self, age=0, hunger=0, thirst=0, fieldOfView=10, world=world_map.WorldMap()):
+class Animal():
+    def __init__(self, world, age=0, hunger=0, thirst=0, fieldOfView=10, object=Object()):
         self.age = age
         self.hunger = hunger
         self.thirst = thirst
         self.world = world
         self.fieldOfView = fieldOfView
+        self.object = object
         
         self.world.addObject(self, (random.randrange(0, self.world.size[0]), random.randrange(0, self.world.size[1])))
         

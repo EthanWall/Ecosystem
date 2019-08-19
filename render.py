@@ -3,7 +3,8 @@ Created on Aug 9, 2019
 
 @author: Ethan
 '''
-import sys
+import pygame
+'''import sys
 import os
 
 def clear():
@@ -28,3 +29,10 @@ def render(size, objects={}):
                 else:
                     line += "*"
         print(line)
+'''
+
+def render(display, objects):
+    for i in objects:
+        pygame.draw.rect(display, (255, 255, 255), i.object.rect)
+    
+    pygame.display.update()

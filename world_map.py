@@ -3,18 +3,18 @@ Created on Aug 8, 2019
 
 @author: Ethan
 '''
-import render
+import pygame
 
 class WorldMap:
     def __init__(self, size=(100, 100), objects={}):
         self.objects = objects
         self.size = size
+        self.screen = pygame.display.set_mode(size)
+        
+        self.screen.fill((255, 255, 255))
         
     def addObject(self, obj, location=(0, 0)):
         self.objects[obj] = location
-        
-    def render(self):
-        render.render(self.size, self.objects)
     
     def setObjectPosition(self, obj, location, relative=False):
         if relative:

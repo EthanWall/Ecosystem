@@ -46,14 +46,13 @@ class Path:
             
             newNode = (currentX, currentY)
             self.nodes.append(newNode)
-            print(self.nodes)
             
         self.calculated = True
         
     def run(self, obj):
         if self.calculated:
             while len(self.nodes) > 0:
-                time.sleep(0.1)
+                time.sleep(0.5)
                 self.world.setObjectPosition(obj, self.nodes[0])
                 del self.nodes[0]
         else:
